@@ -54,7 +54,6 @@ public class gameOver extends AppCompatActivity {
         best3 = preferences.getInt("best3", 0);
 
         //shift the rankings should there be a new high score
-        /**
         if (lastScore > best3) {
             best3 = lastScore;
             SharedPreferences.Editor editor = preferences.edit();
@@ -83,7 +82,6 @@ public class gameOver extends AppCompatActivity {
         TextView highestScore = findViewById(R.id.finalScoreNumber);
         highestScore.setText(best1 + "\n");
 
-         **/
         //return to the game
         Button tryAgain = findViewById(R.id.tryAgain);
         tryAgain.setOnClickListener(v -> tryAgain());

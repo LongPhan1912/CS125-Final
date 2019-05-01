@@ -81,12 +81,7 @@ public class LeaderBoard extends AppCompatActivity {
 
         //go back to home page
         Button homePage = findViewById(R.id.returnHomeFromLeaderboard);
-        homePage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                returnToHomePage();
-            }
-        });
+        homePage.setOnClickListener(v -> returnToHomePage());
     }
     public void returnToHomePage() {
         Intent intent = new Intent(this, Home.class);
