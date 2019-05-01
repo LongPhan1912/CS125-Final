@@ -16,7 +16,7 @@
         android:layout_marginRight="16dp"
         android:text="This game will test you on your response time to solving simple arithmetic problems. If you take more than 5 seconds to answer, it's GAME OVER! Try to confirm whether or not the equation presented is True or False and select the corresponding option. GOOD LUCK!"
         android:textColor="#eeeeee"
-        android:textSize="25sp"
+        android:textSize="23sp"
         app:fontFamily="sans-serif-condensed-light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
