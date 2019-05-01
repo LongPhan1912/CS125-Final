@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d65a31"
+    tools:context=".gameOver">
+
+    <TextView
+        android:id="@+id/finalScoreNumber"
+        android:layout_width="52dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="74dp"
+        android:layout_marginRight="74dp"
+        android:text="0"
+        android:textColor="#eeeeee"
+        android:textSize="30sp"
+        app:fontFamily="sans-serif-condensed-light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/highScore"
+        app:layout_constraintTop_toBottomOf="@+id/gameOver" />
+
+    <TextView
+        android:id="@+id/gameOver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="204dp"
+        android:text="Game Over!"
+        android:textColor="#eeeeee"
+        android:textSize="60sp"
+        app:fontFamily="sans-serif-condensed-light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/yourScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="82dp"
+        android:layout_marginRight="82dp"
+        android:text="Your Score"
+        android:textColor="#eeeeee"
+        android:textSize="30sp"
+        app:fontFamily="sans-serif-condensed-light"
+        app:layout_constraintEnd_toStartOf="@+id/finalScore"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gameOver" />
+
+    <TextView
+        android:id="@+id/finalScore"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="57dp"
+        android:layout_marginRight="57dp"
+        android:layout_marginBottom="20dp"
+        android:text="0"
+        android:textColor="#eeeeee"
+        android:textSize="30sp"
+        app:fontFamily="sans-serif-condensed-light"
+        app:layout_constraintBottom_toTopOf="@+id/finalScoreNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/yourScore" />
+
+    <TextView
+        android:id="@+id/highScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="High Score"
+        android:textColor="#eeeeee"
+        android:textSize="30sp"
+        app:fontFamily="sans-serif-condensed-light"
+        app:layout_constraintStart_toStartOf="@+id/yourScore"
+        app:layout_constraintTop_toBottomOf="@+id/yourScore" />
+
+    <Button
+        android:id="@+id/tryAgain"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="13dp"
+        android:background="#eeeeee"
+        android:text="Try Again"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/homePage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/homePage"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="108dp"
+        android:background="#eeeeee"
+        android:text="Home"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tryAgain" />
+</android.support.constraint.ConstraintLayout>

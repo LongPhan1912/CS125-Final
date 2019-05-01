@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d65a31"
+    tools:context=".HowToPlay">
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="377dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="The Mental Maths Game is a test of your basic arithmetical knowledge. Questions are based on equations which range from having single to multiple operations. The equations may or may not be mathematically sound - it is up to you to determine that!"
+        android:textColor="#eeeeee"
+        android:textSize="25sp"
+        app:fontFamily="sans-serif-condensed-light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="657dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="53dp"
+        android:layout_marginRight="53dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/shia" />
+
+    <Button
+        android:id="@+id/returnHomeFromHowToPlay"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="110dp"
+        android:background="#eeeeee"
+        android:text="Home"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

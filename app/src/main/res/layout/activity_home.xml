@@ -1,0 +1,73 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d65a31"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/gameTitle"
+        android:layout_width="339dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        android:layout_marginBottom="52dp"
+        android:lineSpacingExtra="8sp"
+        android:text="Mental Maths The Game"
+        android:textAllCaps="false"
+        android:textColor="#eeeeee"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        android:typeface="serif"
+        app:fontFamily="sans-serif-condensed-light"
+        app:layout_constraintBottom_toTopOf="@+id/startGame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/startGame"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="#eeeeee"
+        android:text="Start Game"
+        app:layout_constraintBottom_toTopOf="@+id/leaderboard"
+        app:layout_constraintStart_toStartOf="@+id/leaderboard" />
+
+    <Button
+        android:id="@+id/leaderboard"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="76dp"
+        android:background="#eeeeee"
+        android:text="Leaderboard"
+        app:layout_constraintBottom_toTopOf="@+id/aboutPage"
+        app:layout_constraintStart_toStartOf="@+id/howToPlay" />
+
+    <Button
+        android:id="@+id/howToPlay"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="#eeeeee"
+        android:text="How to play"
+        app:layout_constraintStart_toStartOf="@+id/aboutPage"
+        app:layout_constraintTop_toBottomOf="@+id/leaderboard" />
+
+    <Button
+        android:id="@+id/aboutPage"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="88dp"
+        android:background="#eeeeee"
+        android:text="About"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
