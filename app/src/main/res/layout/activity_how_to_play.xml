@@ -14,7 +14,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:text="The Mental Maths Game is a test of your basic arithmetical knowledge. Questions are based on equations which range from having single to multiple operations. The equations may or may not be mathematically sound - it is up to you to determine that!"
+        android:text="This game will test you on your response time to solving simple arithmetic problems. If you take more than 5 seconds to answer, it's GAME OVER! Try to confirm whether or not the equation presented is True or False and select the corresponding option. GOOD LUCK!"
         android:textColor="#eeeeee"
         android:textSize="25sp"
         app:fontFamily="sans-serif-condensed-light"

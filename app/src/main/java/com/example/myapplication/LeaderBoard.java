@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +12,8 @@ import android.widget.TextView;
 public class LeaderBoard extends AppCompatActivity {
     int previousScore;
     int best1, best2, best3, best4, best5;
-
+    Button homePage;
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,8 +82,10 @@ public class LeaderBoard extends AppCompatActivity {
                 + "5th place: " + best5);
 
         //go back to home page
-        Button homePage = findViewById(R.id.returnHomeFromLeaderboard);
-        homePage.setOnClickListener(v -> returnToHomePage());
+        homePage = findViewById(R.id.returnHomeFromLeaderboard);
+        if (homePage != null) {
+            homePage.setOnClickListener(v -> returnToHomePage());
+        }
     }
     public void returnToHomePage() {
         Intent intent = new Intent(this, Home.class);

@@ -1,22 +1,19 @@
 package com.example.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-//import android.content.SharedPreferences;
 import android.os.CountDownTimer;
-import android.util.Log;
-import android.view.View;
+//import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Locale;
-import android.app.DownloadManager.Request;
 import android.widget.Toast;
 
-import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
     //Questions
@@ -74,43 +71,37 @@ public class MainActivity extends AppCompatActivity {
         setQuestion(currentQuestion);
 
 
-        trueButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkQuestion(currentQuestion)) {
-                    resetTimer();
-                    startTimer();
-                    if (currentQuestion < questionsLength) {
-                        currentQuestion++;
-                        updateScore(keepScore);
-                        setQuestion(currentQuestion);
-                    } else {
-                        winner = true;
-                        gameOver();
-                    }
+        trueButton.setOnClickListener(v -> {
+            if (checkQuestion(currentQuestion)) {
+                resetTimer();
+                startTimer();
+                if (currentQuestion < questionsLength) {
+                    currentQuestion++;
+                    updateScore(keepScore);
+                    setQuestion(currentQuestion);
                 } else {
+                    winner = true;
                     gameOver();
                 }
+            } else {
+                gameOver();
             }
         });
 
-        falseButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!checkQuestion(currentQuestion) || !mTimerRunning) {
-                    currentQuestion++;
-                    updateScore(keepScore);
-                    resetTimer();
-                    startTimer();
-                    if (currentQuestion < questionsLength) {
-                        setQuestion(currentQuestion);
-                    } else {
-                        winner = true;
-                        gameOver();
-                    }
+        falseButton.setOnClickListener(v -> {
+            if (!checkQuestion(currentQuestion) || !mTimerRunning) {
+                currentQuestion++;
+                updateScore(keepScore);
+                resetTimer();
+                startTimer();
+                if (currentQuestion < questionsLength) {
+                    setQuestion(currentQuestion);
                 } else {
+                    winner = true;
                     gameOver();
                 }
+            } else {
+                gameOver();
             }
         });
 
@@ -143,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+    @SuppressLint("SetTextI18n")
     private void updateScore(int currentScore) {
         keepScore++;
         scorer.setText("" + keepScore);
