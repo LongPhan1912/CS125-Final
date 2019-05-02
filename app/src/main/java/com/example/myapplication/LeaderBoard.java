@@ -13,7 +13,7 @@ public class LeaderBoard extends AppCompatActivity {
     int previousScore;
     int best1, best2, best3, best4, best5;
     Button homePage;
-    @SuppressLint("SetTextI18n")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

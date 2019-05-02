@@ -11,8 +11,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -23,7 +21,6 @@ public class gameOver extends AppCompatActivity {
     int lastScore;
     int best1;
     TextView textResult;
-    Button bored;
     private static final String TAG = "MP5: Main";
     private static RequestQueue requestQueue;
     @Override
@@ -33,16 +30,16 @@ public class gameOver extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_over);
 
-        //keep track of the final score
+        //make text appear when click the Bored button
         Intent intent = getIntent();
         int score = intent.getIntExtra(MainActivity.final_Score, 0);
         TextView finalScore = findViewById(R.id.finalScore);
-        TextView bonus = findViewById(R.id.extra);
-        bonus.setVisibility(View.GONE);
+        textResult = findViewById(R.id.extra);
+        textResult.setVisibility(View.GONE);
         Button bonusButton = findViewById(R.id.iAmBored);
         bonusButton.setOnClickListener(v -> {
-            bonus.setVisibility(View.VISIBLE);
-            //bonus.setText("Memorize the fifty states and their capitals");
+            textResult.setVisibility(View.VISIBLE);
+            textResult.setText("Learn to write with your nondominant hand");
             startAPICall();
         });
 
@@ -53,6 +50,7 @@ public class gameOver extends AppCompatActivity {
         }
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
 
+        //keep track of the final score
         //load old scores
         lastScore = preferences.getInt("lastScore", 0);
         best1 = preferences.getInt("best1", 0);
@@ -118,7 +116,7 @@ public class gameOver extends AppCompatActivity {
      */
     void apiCallDone(final JSONObject response) {
         try {
-            Log.d(TAG, "response recvd");
+            Log.d(TAG, "response received");
             Log.d(TAG, response.toString());
             // Example of how to pull a field off the returned JSON object
             JSONObject responseJSON = new JSONObject(response.toString());
