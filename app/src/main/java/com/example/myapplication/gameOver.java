@@ -117,14 +117,13 @@ public class gameOver extends AppCompatActivity {
     void apiCallDone(final JSONObject response) {
         try {
             Log.d(TAG, "response received");
-            Log.d(TAG, response.toString());
+            //Log.d(TAG, response.toString());
             // Example of how to pull a field off the returned JSON object
             JSONObject responseJSON = new JSONObject(response.toString());
-            JSONObject activityJSON = responseJSON.getJSONObject("activity");
-            String activityString = activityJSON.toString();
-            textResult.setText(activityString);
+            String activity = responseJSON.get("activity").toString();
+            textResult.setText(activity);
             Log.d(TAG, "test");
-            Log.d(TAG, responseJSON.toString());
+            Log.d(TAG, activity);
         } catch (JSONException ignored) { }
     }
 }
