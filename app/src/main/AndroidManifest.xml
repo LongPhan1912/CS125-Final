@@ -1,19 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myapplication">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Mental Maths: The Game"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".LeaderBoard"></activity>
+        android:theme="@style/AppTheme"
+        tools:targetApi="m">
+        <activity android:name=".LeaderBoard" />
         <activity android:name=".HowToPlay" />
         <activity android:name=".Home" />
-        <activity android:name=".gameOver" />
+        <activity android:name=".gameOver">
+            <tools:validation testUrl="http://www.boredapi.com/api/" />
+
+            <intent-filter
+                android:autoVerify="true"
+                tools:targetApi="m">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="http"
+                    android:host="www.boredapi.com"
+                    android:pathPrefix="/api" />
+            </intent-filter>
+        </activity>
         <activity android:name=".AboutGame" />
         <activity android:name=".MainActivity">
             <intent-filter>

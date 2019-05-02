@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
@@ -21,11 +22,14 @@ import org.json.JSONObject;
 public class gameOver extends AppCompatActivity {
     int lastScore;
     int best1;
-    TextView newView;
+    TextView textResult;
+    Button bored;
     private static final String TAG = "MP5: Main";
     private static RequestQueue requestQueue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestQueue = Volley.newRequestQueue(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_over);
 
@@ -38,12 +42,14 @@ public class gameOver extends AppCompatActivity {
         Button bonusButton = findViewById(R.id.iAmBored);
         bonusButton.setOnClickListener(v -> {
             bonus.setVisibility(View.VISIBLE);
-            bonus.setText("Memorize the fifty states and their capitals");
+            //bonus.setText("Memorize the fifty states and their capitals");
+            startAPICall();
         });
+
         finalScore.setText("" + score);
 
-        if (newView != null) {
-            newView.setVisibility(View.GONE);
+        if (textResult != null) {
+            textResult.setVisibility(View.GONE);
         }
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
 
@@ -69,6 +75,13 @@ public class gameOver extends AppCompatActivity {
         //go back to home page
         Button homePage = findViewById(R.id.homePage);
         homePage.setOnClickListener(v -> returnToHomePage());
+        // ATTENTION: This was auto-generated to handle app links.
+        Intent appLinkIntent = getIntent();
+        String appLinkAction = appLinkIntent.getAction();
+        Uri appLinkData = appLinkIntent.getData();
+
+
+
     }
     public void tryAgain() {
         Intent intent = new Intent(this, MainActivity.class);
@@ -80,14 +93,18 @@ public class gameOver extends AppCompatActivity {
     }
     void startAPICall() {
         try {
+            Log.d(TAG, "request made");
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                     Request.Method.GET,
                     "http://www.boredapi.com/api/activity/",
                     null,
                     this::apiCallDone, error -> Log.e(TAG, error.toString()));
             jsonObjectRequest.setShouldCache(false);
+            requestQueue.add(jsonObjectRequest);
             if (requestQueue != null) {
                 requestQueue.add(jsonObjectRequest);
+            } else {
+                Log.d(TAG, "no request queue");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -107,7 +124,7 @@ public class gameOver extends AppCompatActivity {
             JSONObject responseJSON = new JSONObject(response.toString());
             JSONObject activityJSON = responseJSON.getJSONObject("activity");
             String activityString = activityJSON.toString();
-            newView.setText(activityString);
+            textResult.setText(activityString);
             Log.d(TAG, "test");
             Log.d(TAG, responseJSON.toString());
         } catch (JSONException ignored) { }
